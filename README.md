@@ -19,35 +19,39 @@ To implement univariate Linear Regression to fit a straight line using least squ
 Developed by : Kamesh A
 Register number : 212225230123
 '''
+```
+```
 import numpy as np
 import matplotlib.pyplot as plt
-X= np.array([0,1,2,3,4,5,6,7,8,9])
-Y= np.array([1,3,2,5,7,8,8,9,10,12])
+X=np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+Y=np.array([1, 3, 2, 5, 7, 8, 8, 9, 10, 12])
 plt.scatter(X,Y)
 plt.show()
-X_Mean=np.mean(X)
-Y_Mean=np.mean(Y)
+```
+```
+X_mean=np.mean(X)
+Y_mean=np.mean(Y)
+
 num=0
 den=0
 for i in range(len(X)):
-    num+=(X[i]-X_Mean)*(Y[i]-Y_Mean)
-    den+=(X[i]-X_Mean)**2
-
-m=num/den
-b=Y_Mean-(m*X_Mean)
-print(f"Slope : {m}\nIntercept : {b}")
-Y_Pred=(m*X)+b
-print(f"Predicted values are : \n{Y_Pred}")
-plt.scatter(X,Y,color='Red')
-plt.plot(X,Y_Pred,color='Blue')
+    num += (X[i] - X_mean)*(Y[i]- Y_mean)
+    den += (X[i] - X_mean)**2
+m=num / den
+c=Y_mean - m*X_mean
+print(m,c)
+```
+```
+Y_pred = m*X + c
+print(Y_pred)
+plt.scatter(X,Y)
+plt.plot([min(X),max(X)], [min(Y_pred), max(Y_pred)],color='red')
 plt.show()
-
-
 ```
 ## Output
-<img width="683" height="497" alt="image" src="https://github.com/user-attachments/assets/cd8018cf-69f2-42e8-973b-75c079bd10e1" />
-<img width="709" height="621" alt="image" src="https://github.com/user-attachments/assets/1c9a564a-f24c-4e20-a2f3-1fcc3f89810d" />
-
+<img width="744" height="504" alt="image" src="https://github.com/user-attachments/assets/fbb9baca-e221-4149-9648-f980819c6c13" />
+<img width="370" height="30" alt="image" src="https://github.com/user-attachments/assets/e713f442-1d29-40d2-b253-63af1a56b3ca" />
+<img width="828" height="555" alt="image" src="https://github.com/user-attachments/assets/b47dc964-e4a9-417c-b164-8bcc4563ddd6" />
 
 ## Result
 Thus the univariate Linear Regression was implemented to fit a straight line using least squares.
